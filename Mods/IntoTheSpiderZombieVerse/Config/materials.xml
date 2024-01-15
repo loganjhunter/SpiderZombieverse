@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+
+	<append xpath="/materials">
+	<!-- Adding titanium -->	
+		<material id="MresourceForgedTitanium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Experience" value="30"/>
+		</material>
+		<material id="Mtitanium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="400"/>
+			<property name="Mass" type="int" value="20"/>
+			<property name="explosionresistance" value="2.25"/>
+			<property name="MaxDamage" value="20000"/>
+			<property name="Experience" value="8"/>
+		</material>
+		<material id="Mtitanium_shapes">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="400"/>
+			<property name="Mass" type="int" value="20"/>
+			<property name="explosionresistance" value="2.25"/>
+			<property name="MaxDamage" value="20000"/>
+			<property name="Experience" value="8"/>
+		</material>
+		<!-- Adding Unobtainium -->
+		<material id="Munob_scrap">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="unit_unob"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="stability_glue" value="50"/>
+			<property name="Mass" type="int" value="50"/>
+			<property name="MaxDamage" value="1000"/>
+			<property name="Experience" value="5"/>
+		</material>
+		<material id="MresourceForgedUnobtainium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Experience" value="30"/>
+		</material>
+		<material id="Munobtainium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="400"/>
+			<property name="Mass" type="int" value="20"/>
+			<property name="explosionresistance" value="5.5"/>
+			<property name="MaxDamage" value="50000"/>
+			<property name="Experience" value="8"/>
+		</material>
+		<material id="Munobtainium_shapes">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="400"/>
+			<property name="Mass" type="int" value="20"/>
+			<property name="explosionresistance" value="5.5"/>
+			<property name="MaxDamage" value="50000"/>
+			<property name="Experience" value="8"/>
+		</material>
+		<material id="MtrapSpikesSteel">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="300"/>
+			<property name="Mass" type="int" value="20"/>
+			<property name="explosionresistance" value="1.4"/>
+			<property name="MaxDamage" value="99"/>
+			<property name="Experience" value="2"/>
+			<property name="movement_factor" value="0.18"/>
+		</material>
+		<!-- Adding blade traps -->
+		<material id="MmetalBladeTrapIron">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="40"/>
+			<property name="Mass" type="int" value="12"/>
+			<property name="explosionresistance" value="1.2"/>
+			<property name="MaxDamage" value="2000"/>
+			<property name="Experience" value="2"/>
+		</material>	
+		<material id="MmetalBladeTrapSteel">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="40"/>
+			<property name="Mass" type="int" value="12"/>
+			<property name="explosionresistance" value="1.4"/>
+			<property name="MaxDamage" value="3000"/>
+			<property name="Experience" value="2"/>
+		</material>	
+		<material id="MmetalBladeTrapTitanium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="40"/>
+			<property name="Mass" type="int" value="12"/>
+			<property name="explosionresistance" value="1.6"/>
+			<property name="MaxDamage" value="4000"/>
+			<property name="Experience" value="2"/>
+		</material>	
+		<material id="MmetalBladeTrapUnobtainium">
+			<property name="damage_category" value="metal"/>
+			<property name="surface_category" value="metal"/>
+			<property name="forge_category" value="iron"/>
+			<property name="Hardness" type="float" value="1"/>
+			<property name="stepsound" value="metal"/>
+			<property name="stability_glue" value="40"/>
+			<property name="Mass" type="int" value="12"/>
+			<property name="explosionresistance" value="2"/>
+			<property name="MaxDamage" value="8000"/>
+			<property name="Experience" value="2"/>
+		</material>	
+
+	</append>
+</configs>

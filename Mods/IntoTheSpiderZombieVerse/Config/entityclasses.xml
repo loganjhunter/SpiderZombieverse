@@ -1,0 +1,2467 @@
+<configs>
+
+	<!-- Make headshots count for more-->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='DamageModifier' and contains(@tags, 'head')]/@value">10</set>
+ <!-- 	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='DismemberChance']/@value">0.25</set> -->
+	<!-- Increase loot drops from 2 to 25 percent -->
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='LootDropProb']/@value">0.25</set>
+	<!-- Removes the noteDuke01, keystoneBlock, and the extra comma -->
+	<csv xpath="/entity_classes/entity_class[@name='playerMale']/property[@name= 'ItemsOnEnterGame.GameModeSurvival']/@value" delim="," op="remove" >noteDuke01</csv>
+    <csv xpath="/entity_classes/entity_class[@name='playerMale']/property[starts-with(@name, 'ItemsOnEnterGame')]/@value" delim="," op="remove" >keystoneBlock</csv>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='DismemberMultiplierHead']/@value">10</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='TimeStayAfterDeath']/@value">10</set>
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='DismemberMultiplierHead' and @value='.7']/@value">7</set>
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='DismemberMultiplierHead' and @value='.4']/@value">4</set>
+	
+	<!-- Change all zombies to walk on all fours,  -->
+	 <set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='WalkType']/@value">22</set>
+<!-- 	<remove xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='WalkType']"></remove>
+	<remove xpath="/entity_classes/entity_class[@name='zombieTemplateSlimFemale']/property[@name='WalkType']"></remove>
+	<remove xpath="/entity_classes/entity_class[@name='zombieArlene']/property[@name='WalkType']"></remove> -->
+	
+<!-- 	<append xpath= "/entity_classes/entity_class[contains(@name, 'zombie')]"> -->
+<!-- 	<append xpath= "/entity_classes/entity_class[@name='zombieTemplateMale']">
+		<property name="RandomWalkTypes" value="1,2,3,21,5,6,7,22" />
+	</append>
+	<append xpath= "/entity_classes/entity_class[@name='zombieTemplateSlimFemale']">
+		<property name="RandomWalkTypes" value="1,2,3,21,5,6,7,22" />
+	</append>
+	<append xpath= "/entity_classes/entity_class[@name='zombieArlene']">
+		<property name="RandomWalkTypes" value="2,22" />
+	</append> -->
+	
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AITask']/@value">
+		Leap|
+		BreakBlock|
+		DestroyArea|
+		Territorial|
+		ApproachDistraction|
+		ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+		ApproachSpot|
+		Look|
+		Wander|	
+	</set>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieFatCop']/property[@name='AITask']/@value">
+		Leap|
+		BreakBlock|
+		ApproachDistraction|
+		RangedAttackTarget itemType=1;cooldown=4;duration=5|
+		ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+		ApproachSpot|
+		Look|
+		Wander|
+	</set>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieMutated']/property[@name='AITask']/@value">
+		Leap|
+		BreakBlock|
+		ApproachDistraction|
+		RangedAttackTarget itemType=1;cooldown=4;duration=3;minRange=1;maxRange=6;unreachableRange=18|
+		DestroyArea|
+		ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+		ApproachSpot|
+		Look|
+		Wander|
+	</set>
+
+  	<set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='AITask']/@value">
+		Leap|
+		BreakBlock|
+		DestroyArea|
+		ApproachDistraction|
+		ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+		ApproachSpot|
+		Look|
+		Wander|
+	</set>	 
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieSoldier']">
+		<property name="JumpMaxDistance" value="3.9, 5.7"/>
+	</append>
+<!-- 	<set xpath="/entity_classes/entity_class[@name='zombieSoldier']/property[@name='JumpMaxDistance']/@value">3.9, 5.7</set> -->
+	<set xpath="/entity_classes/entity_class[@name='zombieDemolition']/property[@name='JumpMaxDistance']/@value">3.7, 5.5</set>
+	
+	<!-- Change speed and jump distance -->
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='AIFeralSense']/@value">20</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeed']/@value">0.16</set> 
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeedAggro']/@value">0.5, 2.4</set>  
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeedRand']/@value">-.1, -.15</set> 
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='MoveSpeedPanic']/@value">0.75</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='JumpMaxDistance']/@value">7, 9</set>
+
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and @value='0.3, 1.35']/@value">0.6, 2.7</set>  
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and @value='0.6, 1.45']/@value">1.2, 3.30</set> 
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='MoveSpeedAggro' and @value='.5, 1.35']/@value">0.9, 3.75</set> 
+	<set xpath="/entity_classes/entity_class[contains(@name, 'zombie')]/property[@name='JumpMaxDistance' and @value='4.6, 5']/@value">8.8, 11.1</set> 
+
+	<set xpath="/entity_classes/entity_class[@name='zombieMaleHazmatFeral']/property[@name='MoveSpeedAggro']/@value">0.6, 2.75</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieMaleHazmatFeral']/property[@name='JumpMaxDistance']/@value">4, 6.2</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieMaleHazmatRadiated']/property[@name='MoveSpeedAggro']/@value">1.1, 2.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieMaleHazmatRadiated']/property[@name='JumpMaxDistance']/@value">5, 7.1</set>
+	
+	<set xpath="/entity_classes/entity_class[@name='zombieBiker']/property[@name='MoveSpeedAggro']/@value">0.6, 2.75</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieBiker']/property[@name='JumpMaxDistance']/@value">4, 6.2</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieBikerFeral']/property[@name='MoveSpeedAggro']/@value">1.1, 2.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieBikerFeral']/property[@name='JumpMaxDistance']/@value">5, 7.1</set>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieLumberjack']/property[@name='MoveSpeedAggro']/@value">0.4, 2.1</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieLumberjack']/property[@name='JumpMaxDistance']/@value">1.5, 2.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieLumberjackFeral']/property[@name='MoveSpeedAggro']/@value">0.9, 2.8</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieLumberjackFeral']/property[@name='JumpMaxDistance']/@value">2.1, 3.2</set>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieFemaleFat']/property[@name='MoveSpeedAggro']/@value">0.3, 0.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFemaleFat']/property[@name='JumpMaxDistance']/@value">0.7, 0.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFemaleFatFeral']/property[@name='MoveSpeedAggro']/@value">0.45, 1.2</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFemaleFatFeral']/property[@name='JumpMaxDistance']/@value">1.3, 1.8</set>
+	
+	<set xpath="/entity_classes/entity_class[@name='zombieFatHawaiian']/property[@name='MoveSpeedAggro']/@value">0.3, 0.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatHawaiian']/property[@name='JumpMaxDistance']/@value">0.7, 0.9</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatHawaiianFeral']/property[@name='MoveSpeedAggro']/@value">0.45, 1.2</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatHawaiianFeral']/property[@name='JumpMaxDistance']/@value">1.3, 1.8</set>
+	
+	<set xpath="/entity_classes/entity_class[@name='zombieFatCop']/property[@name='MoveSpeedAggro']/@value">0.25, 1.1</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatCop']/property[@name='JumpMaxDistance']/@value">0.5, 0.75</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatCopFeral']/property[@name='MoveSpeedAggro']/@value">0.35, 1.4</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieFatCopFeral']/property[@name='JumpMaxDistance']/@value">1.1, 1.3</set>
+
+	<!-- Added regular Screamer values and customized higher tiers-->
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieScreamer']">
+		<property name="MoveSpeedAggro" value="1.3, 2.6"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<set xpath="/entity_classes/entity_class[@name='zombieScreamerFeral']/property[@name='MoveSpeedAggro']/@value">1.5, 2.3</set>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieScreamerFeral']">
+		<property name="JumpMaxDistance" value="10.1, 13.5"/>
+	</append>
+
+	<set xpath="/entity_classes/entity_class[@name='zombieScreamerRadiated']/property[@name='MoveSpeedAggro']/@value">1.75, 2.9</set>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieScreamerRadiated']">
+		<property name="JumpMaxDistance" value="11.1, 12.3"/>
+	</append>
+	
+	<!-- Make higher tiered zombies have a higher aggro speed and jump -->
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieArleneRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieMarleneRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombiePartyGirlRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieNurseRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieJoeRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieSteveRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>	
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieTomClarkRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+		
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieBusinessManRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieBurntFeral']">
+		<property name="MoveSpeedAggro" value="1.2, 3.30"/>
+		<property name="JumpMaxDistance" value="8.8, 11.1"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieBurntRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieSpiderRadiated']">
+		<property name="MoveSpeedAggro" value="1.7, 3.80"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieBoeRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieMoeRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieLabRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieDarleneRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>	
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieYoRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>	
+	
+	<append xpath= "/entity_classes/entity_class[@name= 'zombieUtilityWorkerRadiated']">
+		<property name="MoveSpeedAggro" value="1.3, 3.4"/>
+		<property name="JumpMaxDistance" value="9.6, 12.45"/>
+	</append>
+
+
+	<append xpath="entity_classes">
+			<!-- ***DUD ZOMBIE_DEMOLITION -->
+		<entity_class name="zombieDudolition" extends="zombieDemolition">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="AITask" value="
+				Leap|
+				BreakBlock|
+				DestroyArea| 
+				ApproachDistraction|
+				ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+				ApproachSpot|
+				Look|
+				Wander|
+			"/>
+<!-- 			<property name="RandomWalkTypes" value="1,2,3,21,5,6,7,22" /> -->
+			<property name="WalkType" value="2"/>
+			<property name="JumpMaxDistance" value="1, 2"/>
+			<property name="PainResistPerHit" value=".5"/>
+<!-- 			<property name="Explosion.ParticleIndex" value="2"/> -->
+			<property name="Explosion.ParticleIndex" value="8"/>
+			<property name="Explosion.RadiusBlocks" value="15"/>
+			<property name="Explosion.RadiusEntities" value="1"/>
+			<property name="Explosion.BlockDamage" value="0"/>
+			<property name="Explosion.EntityDamage" value="0"/>
+			<property name="Explosion.DamageBonus.earth" value="0"/>
+			<property name="ExplodeDelay" value="1"/>
+			<property name="ExplodeHealthThreshold" value="0"/>
+			<property name="SoundExplodeWarn" value="demolitionzexplodewarning"/>
+			<property name="SoundTick" value="demolitionz_beep,.5,.9"/>
+
+			<property name="ExperienceGain" value="850"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerZombieDemolition"/>
+			<property name="LootDropProb" value=".1"/>
+		</entity_class>
+		<!-- ***Spider pig! -->
+		<entity_class name="animalSpiderPig" extends="animalTemplateHostile">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,animal,zombie,hostile"/>
+			<property name="MapIcon" value="ui_game_symbol_tracking_pig"/>
+			<property name="TrackerIcon" value="ui_game_symbol_tracking_pig"/>
+			<property name="Faction" value="undead"/>
+			<property name="IsEnemyEntity" value="true"/>
+			<property name="AvatarController" value="AvatarAnimalController"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="HasRagdoll" value="true"/>
+			<property name="PhysicsBody" value="boar"/>
+			<property name="Mass" value="200"/>
+			<property name="Prefab" value="/Entities/Animals/Boar/AnimalBoarStandardRagdoll"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="RootMotion" value="true"/>
+			<property name="RagdollOnDeathChance" value=".5"/>
+			
+			<property name="WalkType" value="22"/>
+			
+			<property name="SoundRandom" value="Animals/Boar/boarroam"/>
+			<property name="SoundAlert" value="Animals/Boar/boaralert"/>
+			<property name="SoundHurt" value="Animals/Boar/boarpain"/>
+			<property name="SoundDeath" value="Animals/Boar/boardeath"/>
+			<property name="SoundAttack" value="Animals/Boar/boarattack"/>
+			<property name="SoundSense" value="Animals/Boar/boarsense"/>
+			<property name="SoundGiveUp" value="Animals/Boar/boargiveup"/>
+			<property name="AIFeralSense" value="20"/>
+			<property name="AITask" value="
+				Leap|
+				BreakBlock|
+				DestroyArea|
+				Territorial|
+				ApproachDistraction|
+				ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal|
+				ApproachSpot|
+				Look|
+				Wander|	
+			"/>
+			<property name="AITarget" value="
+			SetAsTargetIfHurt class=EntityPlayer,EntityBandit,EntityEnemyAnimal|
+			BlockingTargetTask|
+			SetNearestCorpseAsTarget flags=edible|
+			SetNearestEntityAsTarget class=EntityPlayer,0,0,EntityBandit,0,-10|
+			"/>
+			<!-- Gameplay  -->
+			<property name="PainResistPerHit" value=".75"/>
+			<property name="MoveSpeed" value="0.3"/>
+			<property name="MoveSpeedAggro" value="1.3, 1.3"/>
+			<property name="MoveSpeedPanic" value="1.6"/>
+			<property name="JumpMaxDistance" value="4.8, 7.9"/>
+
+			<property name="HandItem" value="meleeHandAnimalWolf"/>
+
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="30"/> <!-- animalBoar -->
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="7"/>
+			<drop event="Harvest" name="resourceAnimalFat" count="4" tag="butcherHarvest"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
+			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="250"/>
+			</effect_group>
+
+			<property name="NavObject" value="twitch_spawn,twitch_spawn_other,animaltracking_boar,clear_sleeper" />
+		  
+		  <property name="DismemberTag_L_HeadGore" value="Prefabs/HeadGore" data ="rot=90,0,0+oset=0,0,.05"/>
+		</entity_class>
+
+		<entity_class name="zombieArleneInfest" extends="zombieArleneFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZArleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/>			
+		</entity_class>
+		<entity_class name="zombieMarleneInfest" extends="zombieMarleneFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMarleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombiePartyGirlInfest" extends="zombiePartyGirlFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCocktailWaitressFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieNurseInfest" extends="zombieNurseFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZNurseFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieJoeInfest" extends="zombieJoeFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZJoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieSteveInfest" extends="zombieSteveFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSteveFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieTomClarkInfest" extends="zombieTomClarkFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZTomClarkFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieBusinessManInfest" extends="zombieBusinessManFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSuitFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieBurntInfest" extends="zombieBurntFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBurntFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieSpiderInfest" extends="zombieSpiderFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/zombieSpiderFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieBoeInfest" extends="zombieBoeFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieMaleHazmatInfest" extends="zombieMaleHazmatFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZHazmatFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>
+		<entity_class name="zombieJanitorInfest" extends="zombieJanitorFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMechanicFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieMoenfest" extends="zombieMoeFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieLabInfest" extends="zombieLabFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZLabFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieDarleneInfest" extends="zombieDarleneFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZDarleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieYoInfest" extends="zombieYoFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZYoFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieUtilityWorkerInfest" extends="zombieUtilityWorkerFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZWorkerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieBikerInfest" extends="zombieBikerFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBikerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieLumberjackInfest" extends="zombieLumberjackFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZLumberjackFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+		<entity_class name="zombieFemaleFatInfest" extends="zombieFemaleFatFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBigMamaFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>				
+		<entity_class name="zombieFatHawaiianInfest" extends="zombieFatHawaiianFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZHawaiianFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieFatCopInfest" extends="zombieFatCopFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCopFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieSkateboarderInfest" extends="zombieSkateboarderFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZThugFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieSoldierInfest" extends="zombieSoldierFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSoldierFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieWightInfest" extends="zombieWightFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieMutatedInfest" extends="zombieMutatedFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMutatedFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>	
+		<entity_class name="zombieSteveCrawlerInfest" extends="zombieSteveCrawlerFeral">
+			<property name="SizeScale" value="0.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCrawlerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+		</entity_class>		
+
+	<!-- ***Horde night enraged runners*** -->
+		
+		<entity_class name="zombieArleneEnraged" extends="zombieArleneFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZArleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="WalkType" value="3"/>
+<!-- 			<property name="RandomWalkTypes" value="1,2,3,21,5,6,7,22" /> -->
+			<property name="HandItem" value="meleeHandZombieShortEnraged"/>
+			<property name="LootDropProb" value="0"/> 		
+<!-- 			<property name="AITask" value="
+			BreakBlock|
+			DestroyArea|
+			Territorial|
+			ApproachDistraction|
+			ApproachAndAttackTarget class=EntityPlayer,0,EntityBandit,0,EntityEnemyAnimal,0,EntityAnimal|
+			ApproachSpot|
+			Look|
+			Wander|
+			"/>
+			<property name="AITarget" value="
+			SetAsTargetIfHurt class=EntityPlayer,EntityBandit,EntityEnemyAnimal|
+			BlockingTargetTask|
+			SetNearestCorpseAsTarget flags=edible|
+			SetNearestEntityAsTarget class=EntityPlayer,0,0,EntityBandit,0,-10|
+			"/> -->
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/> <!-- Chasing a target min/max (like day or night)-->
+			<property name="MoveSpeedRand" value="-.2, .25"/> <!-- Rand added to min aggro speed -->			
+		</entity_class>
+		<entity_class name="zombieMarleneEnraged" extends="zombieMarleneFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMarleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="WalkType" value="5"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>	
+		</entity_class>
+		<entity_class name="zombiePartyGirlEnraged" extends="zombiePartyGirlFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCocktailWaitressFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="WalkType" value="5"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>	
+		</entity_class>
+		<entity_class name="zombieNurseEnraged" extends="zombieNurseFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZNurseFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="3"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>	
+		</entity_class>
+		<entity_class name="zombieJoeEnraged" extends="zombieJoeFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZJoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="5"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieSteveEnraged" extends="zombieSteveFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSteveFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="6"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieTomClarkEnraged" extends="zombieTomClarkFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZTomClarkFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="6"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieBusinessManEnraged" extends="zombieBusinessManFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSuitFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieSpiderEnraged" extends="zombieSpiderFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSpiderFeral.prefab"/>
+			<property name="JumpMaxDistance" value="9.2, 13.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieBoeEnraged" extends="zombieBoeFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieMaleHazmatEnraged" extends="zombieMaleHazmatFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZHazmatFeral.prefab"/>
+			<property name="JumpMaxDistance" value="6.8, 9.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>
+		<entity_class name="zombieJanitorEnraged" extends="zombieJanitorFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMechanicFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="5"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieMoeEnraged" extends="zombieMoeFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMoeFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieLabEnraged" extends="zombieLabFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZLabFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieDarleneEnraged" extends="zombieDarleneFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZDarleneFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="3"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieYoEnraged" extends="zombieYoFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZYoFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="5"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieUtilityWorkerEnraged" extends="zombieUtilityWorkerFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZWorkerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="WalkType" value="6"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedAggro" value="0.9, 2.95"/>
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieBikerEnraged" extends="zombieBikerFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBikerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="6.5, 7.9"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.8, 2.75"/>
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieLumberjackEnraged" extends="zombieLumberjackFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZLumberjackFeral.prefab"/>
+			<property name="JumpMaxDistance" value="2.8, 4.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		<entity_class name="zombieFemaleFatEnraged" extends="zombieFemaleFatFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZBigMamaFeral.prefab"/>
+			<property name="JumpMaxDistance" value="2.2, 3.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="1"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>				
+		<entity_class name="zombieFatHawaiianEnraged" extends="zombieFatHawaiianFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZHawaiianFeral.prefab"/>
+			<property name="JumpMaxDistance" value="2.2, 3.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="1"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieFatCopEnraged" extends="zombieFatCopFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCopFeral.prefab"/>
+			<property name="JumpMaxDistance" value="2.2, 3.1"/>
+			<property name="LootDropProb" value="0"/>  
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="1"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieSkateboarderEnraged" extends="zombieSkateboarderFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZThugFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/>  
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="7"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieSoldierEnraged" extends="zombieSoldierFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZSoldierFeral.prefab"/>
+			<property name="JumpMaxDistance" value="6.8, 11.1"/>
+			<property name="LootDropProb" value="0"/>  
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieWightEnraged" extends="zombieWightFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieMutatedEnraged" extends="zombieMutatedFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZMutatedFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieDemolitionEnraged" extends="zombieDemolition">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZDemolition.prefab"/>
+			<property name="Mass" value="350"/>
+			<property name="HandItem" value="meleeHandZombieDemolitionEnraged"/>
+			<property name="JumpMaxDistance" value="2, 5"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="2"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>	
+		<entity_class name="zombieSteveCrawlerEnraged" extends="zombieSteveCrawlerFeral">
+			<property name="SizeScale" value="1.3"/>
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZCrawlerFeral.prefab"/>
+			<property name="JumpMaxDistance" value="8.8, 11.1"/>
+			<property name="LootDropProb" value="0"/> 
+			<property name="MoveSpeedAggro" value="0.5, 2.25"/>
+			<property name="WalkType" value="21"/>
+			<property name="DismemberMultiplierHead" value=".5"/>
+			<property name="DismemberMultiplierArms" value=".5"/>
+			<property name="DismemberMultiplierLegs" value=".5"/> 
+			<property name="MoveSpeedRand" value="-.2, .25"/>
+		</entity_class>		
+		
+		
+		
+	</append>
+
+<!-- Create lootdrops for vanilla zombies -->
+	<append xpath="/entity_classes/entity_class[@name='zombieArlene']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieArlene"/>
+		<property name="TimeStayAfterDeath" value="10"/>
+		<!-- <property name="explosion_event" value="arlene_infest_explosion_horde" /> -->
+	</append>
+<!-- 	<append xpath="/entity_classes/entity_class[@name='zombieArlene']/effect_group[@name='Base Effects']">
+	
+	<triggered_effect trigger="onSelfDied" action="spawn_group" value="zombieArlenesInfest"/>  -->
+	
+	<!-- <triggered_effect trigger="onSelfDied" action="Explode" blast_power="0" block_damage="0" block_radius="1" entity_damage="30" entity_radius="4" /> -->
+		<!-- <triggered_effect trigger="onSelfDied" action="AddBuff" buff="buffArleneInfest"/> -->
+<!-- 	</append> -->
+	
+	
+	<append xpath="/entity_classes/entity_class[@name='zombieArleneFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieArleneFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieArleneRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieArleneRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMarlene']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMarlene"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMarleneFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMarleneFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMarleneRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMarleneRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombiePartyGirl']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombiePartyGirl"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombiePartyGirlFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombiePartyGirlFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombiePartyGirlRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombiePartyGirlRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieNurse']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieNurse"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieNurseFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieNurseFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieNurseRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieNurseRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJoe']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJoe"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJoeFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJoeFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJoeRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJoeRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSteve']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSteve"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSteveFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSteveFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSteveRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSteveRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieTomClark']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieTomClark"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieTomClarkFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieTomClarkFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieTomClarkRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieTomClarkRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBusinessMan']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBusinessMan"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBusinessManFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBusinessManFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBusinessManRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBusinessManRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBurnt']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBurnt"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBurntFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBurntFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBurntRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBurntRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSpider']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSpider"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSpiderFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSpiderFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSpiderRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSpiderRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBoe']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBoe"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBoeFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBoeFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBoeRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBoeRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJanitor']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJanitor"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJanitorFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJanitorFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieJanitorRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieJanitorRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMoe']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMoe"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMoeFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMoeFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMoeRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMoeRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLab']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLab"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLabFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLabFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLabRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLabRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieDarlene']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieDarlene"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieDarleneFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieDarleneFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieDarleneRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieDarleneRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieYo']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieYo"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieYoFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieYoFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieYoRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieYoRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieUtilityWorker']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieUtilityWorker"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieUtilityWorkerFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieUtilityWorkerFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieUtilityWorkerRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieUtilityWorkerRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBiker']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBiker"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBikerFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBikerFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieBikerRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieBikerRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLumberjack']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLumberjack"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLumberjackFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLumberjackFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieLumberjackRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieLumberjackRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFemaleFat']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFemaleFat"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFemaleFatFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFemaleFatFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFemaleFatRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFemaleFatRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatHawaiian']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatHawaiian"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatHawaiianFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatHawaiianFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatHawaiianRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatHawaiianRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMaleHazmat']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMaleHazmat"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMaleHazmatFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMaleHazmatFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMaleHazmatRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMaleHazmatRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatCop']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatCop"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatCopFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatCopFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieFatCopRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieFatCopRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSkateboarder']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSkateboarder"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSkateboarderFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSkateboarderFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSkateboarderRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSkateboarderRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSoldier']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSoldier"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSoldierFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSoldierFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSoldierRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSoldierRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieWightFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieWightFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieWightRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieWightRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamer']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieScreamer"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamerFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieScreamerFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamerRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieScreamerRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMutated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMutated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMutatedFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMutatedFeral"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieMutatedRadiated']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieMutatedRadiated"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieDemolition']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieDemolition"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSteveCrawler']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSteveCrawler"/>
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieSteveCrawlerFeral']">
+		<property name="LootDropEntityClass" value="EntityLootContainerZombieSteveCrawlerFeral"/>
+	</append>
+	
+	<append xpath="/entity_classes">
+		<!-- Create containers for vanilla zombies, yellow for reg, blue for feral, red for rad, red for giant -->
+		<entity_class name="EntityLootContainerZombieArlene">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackArlene"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieArleneFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackArleneFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieArleneRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackArleneRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieArleneGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackArleneGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMarlene">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMarlene"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMarleneFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMarleneFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMarleneRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMarleneRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMarleneGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMarleneGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombiePartyGirl">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackPartyGirl"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombiePartyGirlFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackPartyGirlFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombiePartyGirlRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackPartyGirlRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombiePartyGirlGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackPartyGirlGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieNurse">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackNurse"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieNurseFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackNurseFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieNurseRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackNurseRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieNurseGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackNurseGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJoe">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJoe"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJoeFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJoeFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJoeRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJoeRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJoeGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJoeGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteve">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSteve"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteveFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSteveFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteveRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSteveRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteveGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSteveGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieTomClark">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackTomClark"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieTomClarkFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackTomClarkFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieTomClarkRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackTomClarkRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieTomClarkGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackTomClarkGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBusinessMan">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBusinessMan"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBusinessManFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBusinessManFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBusinessManRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBusinessManRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBusinessManGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBusinessManGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBurnt">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBurnt"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBurntFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBurntFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBurntRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBurntRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBurntGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBurntGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSpider">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSpider"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSpiderFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSpiderFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSpiderRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSpiderRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSpiderGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSpiderGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBoe">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBoe"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBoeFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBoeFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBoeRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBoeRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBoeGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBoeGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJanitor">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJanitor"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJanitorFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJanitorFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJanitorRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJanitorRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieJanitorGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackJanitorGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMoe">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMoe"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMoeFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMoeFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMoeRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMoeRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMoeGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMoeGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLab">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLab"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLabFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLabFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLabRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLabRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLabGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLabGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDarlene">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDarlene"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDarleneFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDarleneFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDarleneRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDarleneRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDarleneGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDarleneGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieYo">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackYo"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieYoFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackYoFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieYoRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackYoRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieYoGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackYoGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieUtilityWorker">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackUtilityWorker"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieUtilityWorkerFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackUtilityWorkerFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieUtilityWorkerRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackUtilityWorkerRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieUtilityWorkerGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackUtilityWorkerGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBiker">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBiker"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBikerFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBikerFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBikerRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBikerRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieBikerGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBikerGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLumberjack">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLumberjack"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLumberjackFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLumberjackFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLumberjackRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLumberjackRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieLumberjackGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackLumberjackGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFemaleFat">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFemaleFat"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFemaleFatFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFemaleFatFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFemaleFatRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFemaleFatRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFemaleFatGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFemaleFatGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatHawaiian">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatHawaiian"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatHawaiianFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatHawaiianFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatHawaiianRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatHawaiianRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatHawaiianGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatHawaiianGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMaleHazmat">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMaleHazmat"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMaleHazmatFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMaleHazmatFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMaleHazmatRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMaleHazmatRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMaleHazmatGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMaleHazmatGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatCop">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatCop"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatCopFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatCopFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatCopRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatCopRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieFatCopGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackFatCopGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSkateboarder">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSkateboarder"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSkateboarderFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSkateboarderFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSkateboarderRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSkateboarderRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSkateboarderGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSkateboarderGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSoldier">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSoldier"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSoldierFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSoldierFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSoldierRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSoldierRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSoldierGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSoldierGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieWightFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackWightFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieWightRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackWightRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieWightGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackWightGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieScreamer">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackScreamer"/> 
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieScreamerFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackScreamerFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieScreamerRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackScreamerRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieScreamerGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackScreamerGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMutated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMutated"/> 
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMutatedFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMutatedFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMutatedRadiated">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMutatedRadiated"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieMutatedGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackMutatedGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDemolition">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDemolition"/> 
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieDemolitionGiant">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDemolitionGiant"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteveCrawler">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackPrefab.prefab"/>
+			<property name="TintColor" value="FF0000"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/> 
+			<property name="LootListOnDeath" value="zPackSteveCrawler"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		<entity_class name="EntityLootContainerZombieSteveCrawlerFeral">	<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackSteveCrawlerFeral"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+	</append>
+
+</configs>

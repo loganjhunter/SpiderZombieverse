@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<!-- Remove Tutorial quests -->
+	<remove xpath="/gameevents/action_sequence[@name='game_first_spawn']/action[@class='AddQuest']"></remove>
+	
+<!-- 	<set xpath="/traders/trader_info/@reset_interval">700</set> -->
+	<set xpath="/gameevents/action_sequence/decision/action/property/@value">Ah ah ah... you didn't say the magic word</set>
+
+	<append xpath="/gameevents">
+
+		<action_sequence name="spawn_SteveInfestation">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!-- <property name="target_type" value="Entity" /> -->
+			<!-- <property name="allow_while_dead" value="false" /> -->
+
+			
+ 			<requirement class="RandomRoll">
+				<property name="min_max" value="0,100" />
+				<property name="operation" value="LTE" />
+				<property name="value" value="50" />
+			</requirement>
+<!--  			<action class="BeltTooltip">
+				<property name="text" value="spawn_SteveInfestation test!" />
+			</action>	 --> 
+<!-- 			<action class="ModifyVarInt">
+				<property name="phase" value="0" />
+				<property name="var_name" value="spawn_count" />
+				<property name="value" value="1,10" />				
+				<property name="operation" value="Set" />
+				<property name="target_group" value="party" />
+			</action> -->
+			<action class="GetNearbyPoint">
+				<property name="phase" value="0" />
+				<property name="safe_spawn" value="false" />
+			</action>
+			<action class="SpawnEntity">
+				<property name="entity_names" value="zombieSteveCrawlerInfest" />
+				<property name="spawn_count" value="4"/>
+				<property name="air_spawn" value="true" />
+				<property name="phase" value="1" />
+				<property name="add_to_group" value="zombies"/>
+				<property name="safe_spawn" value="true" />
+				<property name="spawn_type" value="NearTarget" />
+				<property name="yOffset" value="1" />
+				<property name="max_distance" value="1" /> 
+			</action>
+
+		</action_sequence>
+
+
+
+		<action_sequence name="spawn_UtilityWorkerInfest">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!-- <property name="target_type" value="Entity" /> -->
+			<!-- <property name="allow_while_dead" value="false" /> -->
+
+			
+<!-- 			<requirement class="RandomRoll">
+				<property name="min_max" value="0,100" />
+				<property name="operation" value="LTE" />
+				<property name="value" value="80" />
+			</requirement> -->
+			<action class="BeltTooltip">
+				<property name="text" value="spawn_UtilityWorkerInfest test!" />
+			</action>	
+			<action class="GetNearbyPoint">
+				<property name="phase" value="0" />
+				<property name="safe_spawn" value="false" />
+			</action>
+			<action class="SpawnEntity">
+				<property name="entity_names" value="zombieUtilityWorkerInfest" />
+				<property name="spawn_count" value="4"/>
+				<property name="air_spawn" value="true" />
+				<property name="phase" value="1" />
+				<property name="add_to_group" value="zombies"/>
+				<property name="safe_spawn" value="true" />
+<!-- 				<property name="min_distance" value="2" />
+				<property name="max_distance" value="5" /> -->
+				<property name="spawn_type" value="NearTarget" />
+				<property name="yOffset" value="1" />
+				<property name="max_distance" value="1" /> 
+			</action>
+
+		</action_sequence>
+		<action_sequence name="spawn_JanitorInfest">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+
+			<action class="BeltTooltip">
+				<property name="text" value="spawn_JanitorInfest test!" />
+			</action>	
+			
+			<action class="GetNearbyPoint">
+				<property name="phase" value="0" />
+				<property name="safe_spawn" value="false" />
+			</action>
+			<action class="SpawnEntity">
+				<property name="entity_names" value="zombieJanitorInfest" />
+				<property name="spawn_count" value="4"/>
+				<property name="air_spawn" value="true" />
+				<property name="phase" value="1" />
+				<property name="add_to_group" value="zombies"/>
+				<property name="safe_spawn" value="true" />
+				<property name="spawn_type" value="NearTarget" />
+				<property name="yOffset" value="1" />
+				<property name="max_distance" value="1" /> 
+			</action>
+
+		</action_sequence>
+	</append>
+
+</configs>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<!-- Remove trader info -->	
+ 	<remove xpath="/traders/trader_item_groups"></remove>
+	<remove xpath="/traders/trader_info/trader_items"></remove>
+	
+	<set xpath="/traders/trader_info/@reset_interval">700</set>
+	<set xpath="/traders/trader_info/@open_time">01:00</set>
+	<set xpath="/traders/trader_info/@close_time">01:01</set>
+
+</configs>

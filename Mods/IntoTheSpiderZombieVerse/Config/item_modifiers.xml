@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+	<!-- Adding meleeWpnClubT4TitaniumBat into modifiers -->	
+	<append xpath="/item_modifiers/item_modifier[@name='modMeleeClubBarbedWire']">
+		<item_property_overrides name="meleeWpnClubT4TitaniumBat">
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/ClubWood/clubWoodBarbPrefab.prefab"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name='modMeleeClubMetalSpikes']">
+		<item_property_overrides name="meleeWpnClubT4TitaniumBat">
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/ClubWood/clubWoodBarbPrefab.prefab"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name='modMeleeClubMetalChain']">
+		<item_property_overrides name="meleeWpnClubT4TitaniumBat">
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/ClubWood/clubWoodBarbPrefab.prefab"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name='modMeleeClubBurningShaft']">
+		<item_property_overrides name="meleeWpnClubT4TitaniumBat">
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/ClubWood/clubWoodBarbPrefab.prefab"/>
+		</item_property_overrides>
+	</append>
+</configs>
